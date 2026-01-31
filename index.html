@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>职场疯感等级测评</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --acid-green: #b5ff00;
+          --bright-cyan: #00f0ff;
+          --soft-bg: #f8fafc;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--soft-bg);
+            color: #0f172a;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            touch-action: pan-y;
+            -webkit-font-smoothing: antialiased;
+        }
+        .acid-bg {
+            background: radial-gradient(circle at 0% 0%, #e0f2fe 0%, #f8fafc 100%);
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
+        .neon-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(181, 255, 0, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+        .handwriting {
+            font-family: 'Zhi Mang Xing', cursive;
+        }
+        @keyframes flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-flow-light {
+            background: linear-gradient(270deg, #b5ff00, #00f0ff, #ff00ff);
+            background-size: 600% 600%;
+            animation: flow 4s ease infinite;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        button:active {
+            transform: scale(0.96);
+        }
+    </style>
+
+</head>
+<body>
+    <div class="acid-bg"></div>
+    <div class="neon-glow top-[-100px] left-[-100px]"></div>
+    <div class="neon-glow bottom-[-100px] right-[-100px]" style="background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);"></div>
+    
+    <div id="root"></div>
+
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
